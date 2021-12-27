@@ -1,0 +1,14 @@
+﻿<h1 id="contentLabel">Blog</h1>
+
+<p *ngIf="!blogPosts"><em>Loading...</em></p>
+
+<div *ngIf="blogPosts" aria-labelledby="contentLabel">
+    <div *ngFor="let blogPost of blogPosts">
+        <article>
+            <h2>{{ blogPost.title }}</h2>
+            <div [innerHtml]="blogPost.content"></div>
+            <div>{{ blogPost.postedOn | date:'longDate' }}</div>
+        </article>
+        <br/>
+    </div>
+</div>
